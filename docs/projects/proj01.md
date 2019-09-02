@@ -7,7 +7,7 @@
 Para esta asignación, van a escribir un analizador léxico, también llamado lexer, utilizando un generador de analizadores léxicos llamado **JLex**. Ustedes van a describir el set de tokens para COOL en un formato adecuado y JLex va a generar el código de Java para reconocer tokens en programas escritos en COOL.
 
 
-La documentación para todas las herramientas del proyecto van a estar disponibles en el material de apoyo del curso en el GES. Esto incluye los manuales de JLex[^1] (utilizado para esta asignación), la documentación para JCup (utilizado en la siguiente asignación), así como también el manual para el simulador SPIM[^4]. Ustedes deberían de trabajar en parejas o individualmente para este proyecto.
+La documentación para todas las herramientas del proyecto van a estar disponibles en el material de apoyo del curso en el GES. Esto incluye los manuales de JLex[^1] (utilizado para esta asignación), la documentación para JCup (utilizado en la siguiente asignación), así como también el manual para el simulador SPIM[^4].
 
 
 ## 1. Introducción a JLex
@@ -93,7 +93,7 @@ que puede ser cambiado a `true` escribiendo `:::java yybegin(COMMENT)`. Para tom
 }
 ```
 
-Hay un estado default llamado `:::java YYINITIAL` que está activo a menos que ustedes explicitamente indiquen el inicio de un nuevo estado utilizando `:::java yybegin(STATE)`. Ustedes pueden encontrar útil esta sintaxis para varios aspectos de esta asignación, as como reportar errores. Nosotros les recomendamos que lean detenidamente la documentación de JLex que está en el material de apoyo del curso en el GES antes de empezar a escribir su analizador léxico.
+Hay un estado default llamado `:::java YYINITIAL` que está activo a menos que ustedes explícitamente indiquen el inicio de un nuevo estado utilizando `:::java yybegin(STATE)`. Ustedes pueden encontrar útil esta sintaxis para varios aspectos de esta asignación, así como reportar errores. Nosotros les recomendamos que lean detenidamente la documentación de JLex que está en el material de apoyo del curso en el GES antes de empezar a escribir su analizador léxico.
 
 ## 2. Archivos y Directorios
 

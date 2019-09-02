@@ -5,7 +5,7 @@
 </p>
 
 
-En este laboratorio aprenderan a implementar una tabla de simbolos como la que usaran en la fase 3 del proyecto.
+En este laboratorio aprenderán a implementar una tabla de símbolos como la que usarán en la fase 3 del proyecto.
 
 
 ## 1. Introducción
@@ -15,10 +15,10 @@ Han terminado las primeras 2 fases de su proyecto, y ahora es donde empieza la v
 Para iniciar, ejecuten el comando para generar los archivos necesarios:
 
 ```shell
- $~ make -f /usr/class/cs143/assignments/PA4J/Makefile
+make -f /usr/class/cs143/assignments/PA4J/Makefile
 ```
 
-## 2. Tabla de Simbolos
+## 2. Tabla de Símbolos
 
 Estos son los archivos necesarios para implementar la fase 3 del proyecto, pero por ahora nos enfocaremos únicamente en ***SymtabExample.java***. Veán que este archivo contiene un ejemplo de como funciona la tabla de símbolos:
 
@@ -39,8 +39,7 @@ map.lookup(fred)
 map.exitScope();
 ```
 
-La tabla de simbolos (**SymbolTable.java**), en su implementacion, utiliza un stack para los scopes, y adicional al ejemplo que tienen en el archivo,
-estos son los metodos que contiene la clase:
+La tabla de símbolos (**SymbolTable.java**), en su implementación, utiliza un stack para los scopes, y adicional al ejemplo que tienen en el archivo, estos son los métodos que contiene la clase:
 
 ```java
 // un constructor sin parametros que inicializa la tabla
@@ -84,4 +83,4 @@ Para ejecutarlo:
 ./symtab-example
 ```
 
-Una vez terminado todo, envien al GES un archivo **.zip** conteniendo únicamente el archivo ***SymtabExample.java***
+Una vez terminado todo, envíen al GES un archivo **.zip** conteniendo únicamente el archivo ***SymtabExample.java***

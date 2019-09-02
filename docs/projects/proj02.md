@@ -7,7 +7,7 @@
 
 En esta asignación ustedes van a escribir un parser para COOL. La asignación hace uso de dos herramientas: el generador de parser JCup y el paquete de Java con las clases que representan los nodos de un árbol sintáctico. La salida de su parser va a ser un árbol sintáctico abstracto o AST por sus siglas en inglés. Van a construir un AST utilizando acciones semánticas del generador de parser JCup.
 
-Ustedes van a necesitar consultar la estructura sintáctica de COOL, que se encuentra en la figura 1 del manual de referencia[^3] así como otras partes también. La documentación de JCup está disponible en línea[^2]. La documentación del paquete tree también está disponible en línea[^1]. Ustedes van a necesitar la información del paquete tree para esta y futuras asignaciones.
+Ustedes van a necesitar consultar la estructura sintáctica de COOL, que se encuentra en la Figura 1 del manual de referencia[^3] así como otras partes también. La documentación de JCup está disponible en línea[^2]. La documentación del paquete tree también está disponible en línea[^1]. Ustedes van a necesitar la información del paquete tree para esta y futuras asignaciones.
 
 Hay mucha información en este documento, y necesitan saber la mayoría para poder escribir un parser funcional. Por favor lean este documento detenida y cautelosamente poniéndole mucha atención a los detalles.
 
@@ -34,12 +34,12 @@ Este comando va a copiar un número de archivos en su directorio que han creado.
 
 Ustedes van a necesitar un lexer completamente funcional para probar el parser. Pueden utilizar su propio analizador léxico del proyecto pasado o utilizar el lexer de coolc. Por default, el lexer de coolc es utilizado, para cambiar este comportamiento, cambien el archivo ejecutable **lexer** (que es un enlace simbólico en su directorio de proyecto) con su propio lexer. No asuman automáticamente que el lexer que utilicen está libre de errores. Algunos bugs latentes en el analizador léxico pueden generar problemas misteriosos en el parser.
 
-Ustedes van a correr su parser utilizando `./myparser`, un shell script que pega el parser con un analizador léxico (el de su elección). Noten que `./myparser` puede recibir una bandera -p para depurar el parser; utilizar esta bandera causa que un montón de información de lo que el parser está haciendo sea impreso en la terminal. JCup produce las tablas de parseo de una gramática LALR(1) bastante leíbles en un archivo llamado **cool.output**. Examinar este archivo a veces puede ser útil para depurar la definición del parser.
+Ustedes van a correr su parser utilizando `./myparser`, un shell script que pega el parser con un analizador léxico (el de su elección). Noten que `./myparser` puede recibir una bandera -p para depurar el parser; utilizar esta bandera causa que un montón de información de lo que el parser está haciendo sea impreso en la terminal. JCup produce tablas de parseo de una gramática LALR(1) bastante leíbles en un archivo llamado **cool.output**. Examinar este archivo a veces puede ser útil para depurar la definición del parser.
 
-Ustedes deberían de probar este parser tanto en archivos bien definidos de COOL, como en malos para ver si todo está funcionando correctamente. Recuerden, los bugs en su parser se pueden manifestar en alguna otra parte más adelante. Su parser va a ser calificado utilizando nuestro analizador léxico, entonces si ustedes escogen utilizar unicamente su parser, sepan de antemano que esto está sucediendo en el autograder.
+Ustedes deberían de probar este parser tanto en archivos bien definidos de COOL, como en malos, para ver si todo está funcionando correctamente. Recuerden, los bugs en su parser se pueden manifestar en alguna otra parte más adelante. Su parser va a ser calificado utilizando nuestro analizador léxico, entonces si ustedes escogen utilizar unicamente su parser, sepan de antemano que esto está sucediendo en el autograder.
 
 !!! tip "Recomendación"
-    Nosotros les recomendamos utilizar el analizador léxico de coolc que viene por defecto, ya que este está menos propenso a errores, pero cuando ya tengan un parser funcional utilicen su propio analizar léxico para verificar que todo funcione bien.
+    Nosotros les recomendamos utilizar el analizador léxico de coolc que viene por defecto, ya que este está menos propenso a errores, pero cuando ya tengan un parser funcional utilicen su propio analizar léxico para verificar que todo siga funcionando bien.
 
 ## 3. Salida del Parser
 
@@ -47,7 +47,7 @@ Sus acciones semánticas deberían de construir un AST. La raíz (y solamente la
 
 Para programas que contengan errores (léxicos o sintácticos), la salida son mensajes de error del parser. Nosotros les hemos proveído con una función que reporta errores imprimiendo los mensajes en un formato estándar; por favor **NO** modifiquen esto. Ustedes no deberían de invocar esta función directamente en las acciones semánticas; JCup automáticamente invoca a esta función cuando un error es detectado.
 
-Para algunos constructs que puedan abarcar varias líneas de código, por ejemplo:
+Para algunas construcciones que puedan abarcar varias líneas de código, por ejemplo:
 
 ```python
 foo(
@@ -72,7 +72,7 @@ Ustedes deberían de utilizar el pseudo no terminal *error* para manejar errores
 * [x] En un `let`, yendo a la siguiente variable.
 * [x] En un bloque, yendo a la siguiente expresión.
 
-No se preocupen demasiado por los números de línea que aparecen en los mensajes de error que su parser genera. Si su parser está funcionando correctamente, el número de línea generalmente va a ser la línea donde se encontró el error. Para constructs erroneos que abarquen múltiples líneas, el número de línea por lo general va a ser la última línea del construct.
+No se preocupen demasiado por los números de línea que aparecen en los mensajes de error que su parser genera. Si su parser está funcionando correctamente, el número de línea generalmente va a ser la línea donde se encontró el error. Para construcciones erroneas que abarquen múltiples líneas, el número de línea por lo general va a ser la última línea de esa construcción.
 
 ## 5. Observaciones
 
@@ -80,7 +80,7 @@ Ustedes van a necesitar declaraciones de precedencia, pero solo para las expresi
 
 El let de COOL introduce una ambiguedad en el lenguage (traten de construir un ejemplo si es que no están convencidos). El manual resuelve esta ambiguedad diciendo que el let se extiende a la derecha tanto como se pueda. Dependiendo de como su gramática sea escrita, esta ambiguedad puede aparecer en su parser como un conflicto shift-reduce involucrando las producciones del let. Si ustedes se encuentran en esta situación, talvez quieran considerar resolver el problema utilizando características de JCup que permitan que la precedencia sea asociada a las producciones (no solamente a los operadores). Vean la documentación de JCup[^2] para obtener información en como utilizar esta característica.
 
-Dado que el compilador `./mycoolc` utiliza **pipes** para comunicar de una fase a la siguiente, cualquier caracter extraño producido por el parser puede causar errores, en particular, el analizador semántico no pueda analizar el AST que su parser produce. Dado que cualquier print utilizado en su código puede causar que pierdan errores, por favor asegúrense de remover cualquier print de su código antes de probar el autograder de esta asignación.
+Dado que el compilador `./mycoolc` utiliza **pipes** para comunicar de una fase a la siguiente, cualquier caracter extraño producido por el parser puede causar errores, en particular, que el analizador semántico no pueda analizar el AST que su parser produce. Dado que cualquier print utilizado en su código puede causar que pierdan puntos, por favor asegúrense de remover cualquier print de su código antes de probar el autograder de esta asignación.
 
 
 ## 6. Notas de Java
@@ -95,7 +95,7 @@ Esta declaración dice que el no terminal `program` tiene tipo `programc`.
 
 Es crítico que ustedes declaren el tipo correcto para los atributos de los símbolos de la gramática, fallar en hacerlo virtualmente hace que su parser no funcione correctamente. Ustedes no necesitan declarar tipos para los símbolos de la gramática que no tengan atributos.
 
-El chequeo de tipos del compilador de java **javac** se puede quejar si utilizan los constructores de los nodos del árbol con el tipo incorrecto. Si ustedes corrigen los errores con casting, su programa puede lanzar una excepción cuando el constructor note que está siendo utilizado con los tipos incorrectos. También, JCup se puede quejar si crean errores de tipos.
+La verificación de tipos del compilador de java **javac** se puede quejar si utilizan los constructores de los nodos del árbol con el tipo incorrecto. Si ustedes corrigen los errores con casting, su programa puede lanzar una excepción cuando el constructor note que está siendo utilizado con los tipos incorrectos. También, JCup se puede quejar si crean errores de tipos.
 
 
 ## 7. Autograder
