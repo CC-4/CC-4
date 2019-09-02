@@ -33,13 +33,21 @@ Para empezar, creen el directorio **PA3** en su carpeta que contendrá todas las
 make -f /usr/class/cs143/assignments/PA4J/Makefile
 ```
 
-Este comando va a copiar un número de archivos en su directorio que han creado. Algunos de los archivos que van a ser copiados van a ser de solo lectura (representando a estos con archivos que realmente son enlaces simbólicos hacia otros archivos). Ustedes no deberían de editar estos archivos. De hecho, si ustedes modifican estos archivos, van a encontrar imposible terminar y completar esta asignación. Vean las instrucciones en el archivo README. Los únicos archivos que tienen permitido modificar para esta asignación son:
+Este comando va a copiar un número de archivos en su directorio que han creado. Algunos de los archivos que van a ser copiados van a ser de solo lectura (representando a estos con archivos que realmente son enlaces simbólicos hacia otros archivos). Ustedes no deberían de editar estos archivos. De hecho, si ustedes modifican estos archivos, van a encontrar imposible terminar y completar esta asignación. Vean las instrucciones en el archivo README.
+
+Adicionalmente también tienen que bajar el archivo **SemantErrors.java** haciendo lo siguiente:
+
+```sh
+wget https://raw.githubusercontent.com/CC-4/cc-4.github.io/master/projects/SemantErrors.java
+```
+
+Los únicos archivos que tienen permitido modificar para esta asignación son:
 
 * [x] **cool-tree.java**: Este archivo contiene definiciones de los nodos del AST y es el archivo principal de su implementación. Ustedes van a necesitar agregar código para su analizador semántico en este archivo. El analizador semántico es llamado utilizando el método `semant()` de la clase `programc`. No modifiquen las declaraciones existentes.
 * [x] **ClassTable.java**: Esta clase es un placeholder para algunos métodos útiles (incluyendo reporte de errores e inicialización de las clases básicas). Pueden utilizar este archivo y mejorarlo para su analizador semántico.
 * [x] **TreeConstants.java**: Este archivo define algunos AbstractSymbol útiles.
 * [x] **good.cl y bad.cl**: Estos archivos prueban algunas características semánticas de COOL. Ustedes deberían de agregar tests que aseguren que good.cl tome en cuenta combinaciones semánticas legales (tantas como se puedan) y en bad.cl lo contrario, combinaciones semánticas ilegales. No es posible tomar en cuenta todas estas combinaciones en un solo archivo, ustedes son responsables de cubrir la mayoría de estas. Expliquen sus pruebas en estos archivos y pongan cualquier comentario en el archivo README.
-* [x] **SemantErrors.java**: Este archivo contiene métodos que generan los errores correspondientes para el análisis semántico.
+* [x] **SemantErrors.java**: Este archivo contiene métodos que generan los errores correspondientes para el análisis semántico, pueden agregar otros errores que talvez no están cubiertos en este archivo.
 * [x] **README**: Este archivo contiene instrucciones detalladas para la asignación, así como también un número de recomendaciones útiles. En este archivo deberían de colocar el diseño de su implemetanción y porque su solución es correcta.
 
 ## 2. Atravesar el AST
