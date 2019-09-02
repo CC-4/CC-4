@@ -103,7 +103,7 @@ El chequeo de tipos del compilador de java **javac** se puede quejar si utilizan
 Ustedes deberían de descargar el siguiente script en el mismo directorio donde tienen sus archivos de la segunda fase:
 
 ```sh
-wget http://raw.githubusercontent.com/CC-4/cc-4.github.io/master/assets/projects/grading/pa2-grading.pl
+wget https://raw.githubusercontent.com/CC-4/cc-4.github.io/master/projects/grading/pa2-grading.pl
 chmod +x pa2-grading.pl
 ```
 
@@ -116,7 +116,7 @@ y ejecutar el siguiente comando:
 Esto califica su parser utilizando el analizador léxico de coolc. Si ustedes quieren probar su parser utilizando la fase 1:
 
 ```sh
-wget http://raw.githubusercontent.com/CC-4/cc-4.github.io/master/assets/projects/grading/pa2-grading-all.sh
+wget https://raw.githubusercontent.com/CC-4/cc-4.github.io/master/projects/grading/pa2-grading-all.sh
 chmod +x pa2-grading-all.sh
 ```
 

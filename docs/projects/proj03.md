@@ -118,7 +118,7 @@ Si ustedes pueden contestar estas preguntas para cada aspecto de COOL, implement
 Ustedes deberían de descargar el siguiente script en el mismo directorio donde tienen sus archivos de la tercera fase:
 
 ```sh
-wget http://raw.githubusercontent.com/CC-4/cc-4.github.io/master/assets/projects/grading/pa3-grading.pl
+wget https://raw.githubusercontent.com/CC-4/cc-4.github.io/master/projects/grading/pa3-grading.pl
 chmod +x pa3-grading.pl
 ```
 
@@ -131,7 +131,7 @@ y ejecutar el siguiente comando:
 Esto califica su parser utilizando el analizador léxico de coolc. Si ustedes quieren probar su parser utilizando su fase 1 y 2:
 
 ```sh
-wget http://raw.githubusercontent.com/CC-4/cc-4.github.io/master/assets/projects/grading/pa3-grading-all.sh
+wget https://raw.githubusercontent.com/CC-4/cc-4.github.io/master/projects/grading/pa3-grading-all.sh
 chmod +x pa3-grading-all.sh
 ```
 

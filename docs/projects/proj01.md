@@ -192,7 +192,7 @@ Hay al menos dos maneras en la que ustedes pueden probar su analizador léxico. 
 Ustedes deberían de bajar el siguiente script en el mismo directorio donde se encuentran sus archivos de la fase número 1.
 
 ```sh
-wget http://raw.githubusercontent.com/CC-4/cc-4.github.io/master/assets/projects/grading/pa1-grading.pl
+wget https://raw.githubusercontent.com/CC-4/cc-4.github.io/master/projects/grading/pa1-grading.pl
 chmod +x pa1-grading.pl
 ```
 

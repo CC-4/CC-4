@@ -40,7 +40,7 @@ Es una máquina virtual de **Ubuntu 16.04 LTS** para VMWare Workstation 12, desp
 Para esta opción se asume que tienen ya una máquina con una distribución de Linux instalada, entonces en una terminal (pueden abrir una haciendo <kbd>CTRL</kbd><kbd>+</kbd><kbd>T</kbd>) tiene que escribir hacer lo siguiente:
 
 ```sh
-wget https://cc-4.github.io/assets/install_cc4.sh
+wget https://raw.githubusercontent.com/CC-4/cc-4.github.io/master/projects/install_cc4.sh
 chmod +x install_cc4.sh
 . ./install_cc4.sh
 ```
