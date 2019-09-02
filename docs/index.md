@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="/img/compilers.png" alt="Compiladores" />
-  </br>
+  <br>
   <small>Photo Credit: openclassroom.stanford.edu</small>
 </p>
 
