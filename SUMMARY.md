@@ -12,6 +12,7 @@
 
 ## Proyectos <a id="proyectos-1"></a>
 
+* [Instalación Material](proyectos-1/instalacion-material.md)
 * [Análisis Léxico](proyectos-1/untitled.md)
 * [Análisis Sintáctico](proyectos-1/analisis-sintactico.md)
 * [Análisis Semántico](proyectos-1/analisis-semantico.md)
