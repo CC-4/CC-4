@@ -4,11 +4,11 @@
 
 ## Laboratorios
 
-* [Lab 1](laboratorios/untitled.md)
-* [Lab 2](laboratorios/lab-2.md)
-* [Lab 3](laboratorios/lab-3.md)
-* [Lab 4](laboratorios/lab-4.md)
-* [Lab 5](laboratorios/lab-5.md)
+* [Lab 1 \(COOL\)](laboratorios/untitled.md)
+* [Lab 2 \(Lexer\)](laboratorios/lab-2.md)
+* [Lab 3 \(RDP\)](laboratorios/lab-3.md)
+* [Lab 4 \(JCUP\)](laboratorios/lab-4.md)
+* [Lab 5 \(Symbol Table\)](laboratorios/lab-5.md)
 
 ## Proyectos <a id="proyectos-1"></a>
 
