@@ -97,7 +97,7 @@ La verificación de tipos del compilador de java **javac** se puede quejar si ut
 
 Ustedes deberían de descargar el siguiente script en el mismo directorio donde tienen sus archivos de la segunda fase:
 
-{% file src="../.gitbook/assets/pa2-grading.pl" caption="Autograder fase 2" %}
+{% file src="../.gitbook/assets/pa2-grading.pl" caption="pa2-grading.pl" %}
 
 Volverlo ejecutable de la siguiente manera:
 
@@ -113,7 +113,7 @@ y ejecutarlo haciendo lo siguiente:
 
 Esto califica su parser utilizando el analizador léxico de coolc. Si ustedes quieren probar su parser utilizando la fase 1 descarguen el siguiente archivo:
 
-{% file src="../.gitbook/assets/pa2-grading-all.sh" caption="Autograder fase 1 y 2" %}
+{% file src="../.gitbook/assets/pa2-grading-all.sh" caption="pa2-grading-all.sh" %}
 
 Volverlo ejecutable de la siguiente manera:
 

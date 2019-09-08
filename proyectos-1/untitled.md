@@ -174,7 +174,7 @@ Hay al menos dos maneras en la que ustedes pueden probar su analizador léxico. 
 
 Ustedes deberían de bajar el siguiente script en el mismo directorio donde se encuentran sus archivos de la fase número 1.
 
-{% file src="../.gitbook/assets/pa1-grading.pl" caption="Autograder fase 1" %}
+{% file src="../.gitbook/assets/pa1-grading.pl" caption="pa1-grading.pl" %}
 
 ```bash
 chmod +x pa1-grading.pl
