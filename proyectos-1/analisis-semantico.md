@@ -81,7 +81,9 @@ La verificación de tipos es otra función principal del analizador semántico. 
 
 Un problema difícil es que hacer si una expresión no tiene un tipo válido de acuerdo a las reglas. Primero, un error se debería de imprimir con el número de línea y una descripción de que fue lo que estuvo mal.
 
-!!! tip "Recomendación" Utilicen la clase de ayuda **SemantErrors.java** para imprimir los errores necesarios durante el análisis semántico.
+{% hint style="success" %}
+Utilicen la clase de ayuda **SemantErrors.java** para imprimir los errores necesarios durante el análisis semántico.
+{% endhint %}
 
 Es relativamente fácil dar mensajes de error coherentes, porque generalmente es obvio que error es. Nosotros esperamos que ustedes den mensajes de error informativos de acuerdo a lo que se encuentra en **SemantErros.java**. Segundo, el analizador semántico tiene que tratar de recuperarse y continuar. Nostros si esperamos que su analizador semántico se recupere, pero no esperamos que evite errores en cascada. Un mecanismo de recuperación simple es asignar el tipo `Object` a cualquier expresión que no se le pueda dar un tipo \(nostros utilizamos esto en coolc\).
 
