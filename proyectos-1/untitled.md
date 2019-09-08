@@ -176,6 +176,8 @@ Ustedes deberían de bajar el siguiente script en el mismo directorio donde se e
 
 {% file src="../.gitbook/assets/pa1-grading.pl" caption="pa1-grading.pl" %}
 
+Volverlo ejecutable de la siguiente manera:
+
 ```bash
 chmod +x pa1-grading.pl
 ```
