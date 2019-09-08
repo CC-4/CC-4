@@ -4,6 +4,8 @@ description: Recursive Descent Parser
 
 # Lab 3 \(RDP\)
 
+![](../.gitbook/assets/rdp.gif)
+
 ## 1. Introducción
 
 En las últimas clases ustedes vieron el tema de _**recursive descent parsing \(RDP para simplificar\)**_, aprendieron que es un tipo de parser predictivo y que entra en la categoría de top-down parsing. También vieron de forma general un algoritmo para implementarlo y en este laboratorio lo pondremos en práctica.
@@ -16,6 +18,8 @@ Como el nombre sugiere, un _**recursive descent parser**_ usa funciones recursiv
 2. Un analizador sintáctico _\(parser\)_ convierte el stream de tokens en un AST.
 
 De forma gráfica esos 2 pasos los podemos ver asi:
+
+![](../.gitbook/assets/lexerparser.png)
 
 En este laboratorio realizaremos **una calculadora con un par de operaciones** e iremos un paso más adelante al implementar un _**intérprete**_, es decir no crearemos un árbol sintáctico sino que evaluaremos online las expresiones.
 

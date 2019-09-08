@@ -125,3 +125,7 @@ xzy no está contenido en abcdefghij.
 En el manual de referencia de COOL hay algo que podría ayudarnos, página número 14, en específico el método: `substr(i : Int, l : Int)`.
 {% endhint %}
 
+## Referencias
+
+1. [The Cool Reference Manual](http://web.stanford.edu/class/cs143/materials/cool-manual.pdf) - Manual de COOL.
+

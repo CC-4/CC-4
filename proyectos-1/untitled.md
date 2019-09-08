@@ -188,3 +188,11 @@ Cada vez que quieran ejecutar el autograder deberían de hacer lo siguiente:
 ./pa1-grading.pl
 ```
 
+## Referencias
+
+1. [JFlex Manual](http://www.cs.princeton.edu/~appel/modern/java/JLex/) - Manual de JLex.
+2. [The Cool Reference Manual](http://web.stanford.edu/class/cs143/materials/cool-manual.pdf) - Manual de COOL.
+3. [Tour of the Cool Support Code](http://web.stanford.edu/class/cs143/materials/cool-tour.pdf) - Manual del Código de Soporte de COOL.
+4. [SPIM Manual](http://web.stanford.edu/class/cs143/materials/SPIM_Manual.pdf) - Manual de SPIM.
+5. [JCup Java Manual](http://web.stanford.edu/class/cs143/javadoc/java_cup/index.html) - Javadoc de JCup.
+

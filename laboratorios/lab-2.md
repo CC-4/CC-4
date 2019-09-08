@@ -1,5 +1,7 @@
 # Lab 2 \(Lexer\)
 
+
+
 En este lab implementarán la primera fase de un compilador, un analizador léxico, para una version sin objetos de COOL. Lo llamaremos CNOOL _**Classroom Not Object Oriented Language**_.
 
 Un analizador léxico conforma la primer parte de un compilador. La función principal de un analizador léxico es tomar una cadena de caracteres y separarla en tokens. Cada uno de estos tokens representa un símbolo del lenguaje de programación.
@@ -40,4 +42,8 @@ make -f /usr/class/cs143/assignments/PA2J/Makefile
 ```
 
 De todos los archivos que se copiarán, únicamente deben de modificar **cool.lex**, y agregar las expresiones regulares necesarias para que se generen los tokens de la gramática. Por razones de funcionamiento, no modificaremos el archivo **TokenConstants.java**, que contiene todos los tokens necesarios para el proyecto. Para facilitar la implementación, retiraremos los comentarios y los strings multilínea, así como el soporte para el caracter ‘\n’ de ellos. Tienen consultar el manual de JLex para este laboratorio.
+
+## Referencias
+
+1. [JFlex Manual](http://www.cs.princeton.edu/~appel/modern/java/JLex/) - Manual de JLex.
 

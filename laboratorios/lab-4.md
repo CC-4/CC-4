@@ -1,5 +1,7 @@
 # Lab 4 \(JCUP\)
 
+![](../.gitbook/assets/cup_logo.gif)
+
 ## 1. Introducción
 
 Descarguen todos los archivos del siguiente repositorio:
@@ -121,4 +123,11 @@ Noten que el argumento de las funciones trigonométricas está en radianes.
 {% endhint %}
 
 Una vez terminado, tienen que realizar un commit de los archivos .cup y .lex y subir al GES el link de su repositorio.
+
+## Referencias
+
+1. [JCup Manual](http://www2.cs.tum.edu/projects/cup/manual.html) - Manual de JCup.
+2. [JCup Java Manual](http://web.stanford.edu/class/cs143/javadoc/java_cup/index.html) - Javadoc de JCup.
+
+
 

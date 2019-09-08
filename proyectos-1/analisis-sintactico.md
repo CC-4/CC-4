@@ -127,3 +127,12 @@ y ejecutarlo haciendo lo siguiente:
 ./pa2-grading-all.sh
 ```
 
+## Referencias
+
+1. [The Tree Package](http://web.stanford.edu/class/cs143/javadoc/cool_ast/) - Javadoc del paquete Tree.
+2. [JCup Manual](http://www2.cs.tum.edu/projects/cup/manual.html) - Manual de JCup.
+3. [The Cool Reference Manual](http://web.stanford.edu/class/cs143/materials/cool-manual.pdf) - Manual de COOL.
+4. [Tour of the Cool Support Code](http://web.stanford.edu/class/cs143/materials/cool-tour.pdf) - Manual del Código de Soporte de COOL.
+5. [SPIM Manual](http://web.stanford.edu/class/cs143/materials/SPIM_Manual.pdf) - Manual de SPIM.
+6. [JCup Java Manual](http://web.stanford.edu/class/cs143/javadoc/java_cup/index.html) - Javadoc de JCup.
+

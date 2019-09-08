@@ -1,5 +1,7 @@
 # Lab 5 \(Symbol Table\)
 
+![](../.gitbook/assets/st.gif)
+
 ## 1. Introducción
 
 Han terminado las primeras 2 fases de su proyecto, y ahora es donde empieza la verdadera batalla contra el dragon. En la fase 3 se encargarán de hacer el análisis semántico del compilador, es decir, en pocas palabras, deben asignar un tipo a cada nodo del árbol generado en la fase 2, y así terminar de capturar cualquier error o inconsistencia en el código o programa a compilar. Para realizar esta fase, ustedes deben implementar una tabla de símbolos en donde guardarán todas las variables declaradas para validar su existencia en base a su scope, y poder asignar un tipo a cada una.
