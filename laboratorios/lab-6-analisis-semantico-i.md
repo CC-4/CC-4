@@ -298,10 +298,6 @@ Esto es una forma de recuperación de errores que también van a tener que reali
 
 Cuando hagan el análisis semántico de **Return** recuerden que el tipo del return es el mismo que el de la expresión `e` del return.
 
-{% hint style="success" %}
-Implementen este nodo de primero
-{% endhint %}
-
 ### 2.5 Autograder
 
 Para probar su implementación pueden utitlizar lo siguiente:
