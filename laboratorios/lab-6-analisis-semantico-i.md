@@ -61,13 +61,7 @@ Si todo lo tienen bien, les debería de salir lo siguiente:
 => You got a score of 5 out of 5.
 ```
 
-El autograder funciona como en los proyectos, pueden ver en la carpeta **grading** las diferencias y los tests que se están probando. En este ejercicio los archivos de prueba tienen el siguiente formato:
-
-```bash
-parent -> children
-parent -> children
-...
-```
+El autograder funciona como en los proyectos, pueden ver en la carpeta **grading** las diferencias y los tests que se están probando.
 
 ## 2. Análisis Semántico del lenguaje Viper
 
