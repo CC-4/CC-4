@@ -9,6 +9,7 @@
 * [Lab 3 \(RDP\)](laboratorios/lab-3.md)
 * [Lab 4 \(JCUP\)](laboratorios/lab-4.md)
 * [Lab 5 \(Symbol Table\)](laboratorios/lab-5.md)
+* [Lab 6 \(Análisis Semántico I\)](laboratorios/lab-6-analisis-semantico-i.md)
 
 ## Proyectos <a id="proyectos-1"></a>
 
