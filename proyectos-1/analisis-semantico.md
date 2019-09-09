@@ -23,7 +23,11 @@ Esta lista de tareas podría no ser exhaustiva, es responsabilidad de ustedes de
 
 ## 1. Archivos y Directorios
 
-Para empezar, creen el directorio **PA3** en su carpeta que contendrá todas las demás fases como se explicó [aquí](/projects/proj00/) y dentro de esa carpeta en una terminal \(CTRL+T\) escriban lo siguiente:
+Para empezar, creen el directorio **PA3** en su carpeta que contendrá todas las demás fases como se explicó en:
+
+{% page-ref page="instalacion-material.md" %}
+
+ y dentro de esa carpeta en una terminal \(CTRL+T\) escriban lo siguiente:
 
 ```bash
 make -f /usr/class/cs143/assignments/PA4J/Makefile
