@@ -11,10 +11,10 @@
 * [Lab 5 \(Symbol Table\)](laboratorios/lab-5.md)
 * [Lab 6 \(Análisis Semántico I\)](laboratorios/lab-6-analisis-semantico-i.md)
 
-## Proyectos <a id="proyectos-1"></a>
+## Proyectos
 
-* [Instalación Material](proyectos-1/instalacion-material.md)
-* [Análisis Léxico](proyectos-1/untitled.md)
-* [Análisis Sintáctico](proyectos-1/analisis-sintactico.md)
-* [Análisis Semántico](proyectos-1/analisis-semantico.md)
+* [Instalación Material](proyectos/instalacion-material.md)
+* [Análisis Léxico](proyectos/untitled.md)
+* [Análisis Sintáctico](proyectos/analisis-sintactico.md)
+* [Análisis Semántico](proyectos/analisis-semantico.md)
 
