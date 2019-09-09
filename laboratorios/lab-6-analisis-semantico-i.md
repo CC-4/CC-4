@@ -10,7 +10,7 @@ https://classroom.github.com/a/xtYeXoTO
 
 ## 1. Ciclos en Grafos:
 
-En la fase 3 del compilador les piden verificar que el grafo de herencia de un programa hecho en **COOL** esté bien formado. Según la definición del manual de COOL un grafo de herencia está bien formado si ese grafo **NO** tiene ciclos, es decir, si hay una clase **A**, esa clase **A** no puede heredar de **A** \(de ella misma\). Tampoco se puede que una clase **A** herede de una clase **B** y esa clase **B** herede de **A**. Para poder encontrar esos ciclos necesitamos diseñar un algoritmo _**recursivo**_ \(_lo que van a hacer en esta primera parte del lab_\). En el archivo **src/Graph.java** hay una función llamada _**hasCycles**_ que tienen que completar para encontrar los ciclos de un grafo:
+En la fase 3 del compilador les piden verificar que el grafo de herencia de un programa hecho en **COOL** esté bien formado. Según la definición del manual de COOL un grafo de herencia está bien formado si ese grafo **NO** tiene ciclos, es decir, si hay una clase **A**, esa clase **A** no puede heredar de **A** \(de ella misma\). Tampoco se puede que una clase **A** herede de una clase **B** y esa clase **B** herede de **A**. Para poder encontrar esos ciclos necesitamos diseñar un algoritmo _**recursivo**_ \(_lo que van a hacer en esta primera parte del lab_\). En el archivo **src/Graph.java** hay una función llamada _**hasCycles**_ que tienen que completar para encontrar los ciclos en un grafo:
 
 ```java
 /**
@@ -26,13 +26,13 @@ private boolean hasCycles(String name, HashSet<String> visited) {
 }
 ```
 
-Una buena idea para almacenar el grafo de _**herencia**_ es usar un **hashtable** _\(la mayoría de cosas en este proyecto sale con hashtables...\)_, ya que podemos guardar una relación padre -&gt; hijos. Lo que hace el método de la clase `add(String parent, LinkedList<String> children)`. En este caso estamos usando Strings en vez de `AbstractSymbols` solo para simplificar las cosas. Entonces si uno quiere saber si una clase tiene ciclos mandaríamos a llamar al método `hasCycles("algunaclase")`. Cuando logren implementar este ejercicio, va a ser bastante fácil trasladar este código a su proyecto.
+Una buena idea para almacenar el grafo de _**herencia**_ es usar un **hashtable** _\(la mayoría de cosas en este proyecto sale con hashtables...\)_, ya que podemos guardar una relación padre -&gt; hijos. Lo que hace el método de la clase `add(String parent, LinkedList<String> children)`. En este caso estamos usando `Strings` en vez de `AbstractSymbols` solo para simplificar las cosas. Entonces si uno quiere saber si una clase tiene ciclos mandaríamos a llamar al método `hasCycles("algunaclase")`. Cuando logren implementar este ejercicio, va a ser bastante fácil trasladar este código a su proyecto.
 
 ### 1.1 ¿Qué tienen que hacer?
 
-Ustedes tienen que diseñar un algoritmo _**recursivo**_ que sea capaz de verificar si una clase tiene ciclos en su _**path**_ de herencia. Para esto algunas aclaraciones:
+Ustedes tienen que diseñar un algoritmo _**recursivo**_ que sea capaz de verificar si una clase tiene ciclos en su _**path**_ de herencia, pero primero algunas aclaraciones:
 
-1. Recuerden que estamos trabajando con `Strings` no con `AbstractSymbols`.
+1. Recuerden que estamos trabajando con `Strings` , no con `AbstractSymbols`.
 2. Una clase no puede heredar de ella misma o sus parents de ellos mismos.
 3. NO hay circuitos cerrados de herencia, siempre hay nodos sueltos en un grafo bien formado.
 4. **TIENE** que ser recursivo \(queda bastante simple así, lo prometemos\).
@@ -86,7 +86,7 @@ En los archivos de lab dentro de **src/viper/tree** están los nodos que represe
 9. Mod
 10. Return
 
-En el lenguaje Viper existen _statements_ y _expressions_, solo las expressions son las que siempre devuelven un valor y se les asigna un tipo, los statements no. Para asignar un tipo a una expression vean la función **semant** del nodo **NoReturn** para ver como es que se le asigna un tipo a una expression utilizando la clase **Type**. También van a notar como está declarada la función `semant` en los nodos del AST:
+En el lenguaje Viper existen _statements_ y _expressions_, solo las expressions son las que siempre devuelven un valor y se les asigna un tipo, los statements no. Para asignar un tipo a una expression vean la función **semant** del nodo **NoReturn** para ver como es que se le asigna un tipo a una expression utilizando la clase **Type**, además vean la clase **Type** para ver los métodos que tiene, porque les va a servir tenerlos en mente. También van a notar como está declarada la función `semant` en los nodos del AST:
 
 ```java
 public void semant(SymbolTable O, HashMap<String, Function> M) {
@@ -94,17 +94,21 @@ public void semant(SymbolTable O, HashMap<String, Function> M) {
 }
 ```
 
-`O` es la tabla de símbolos que utilizaron en el laboratorio anterior, `M`es el entorno de funciones que hace un mapping de nombre de función a `Function` \(_esto es útil porque así se puede extraer fácilmente los formals y el tipo de retorno_\). Algo así tendría que verse su método `semant` en su proyecto, solo que con las cosas de COOL y tomando en cuenta los nombres de clases y que son `AbstractSymbol`. 
+`O` es la tabla de símbolos que utilizaron en el laboratorio anterior, `M`es el entorno de funciones que hace un mapping de nombre de función a `Function` \(_esto es útil porque así se puede extraer fácilmente los formals y el tipo de retorno_\). Algo así tendría que verse su método `semant` en su proyecto, solo que con las cosas de COOL y tomando en cuenta los nombres de clases y que son `AbstractSymbol`. En este laboratorio no vamos a utilizar a `M`.
 
 ### 2.4 Implementación
 
-#### Function
+#### Análisis de Function
 
 El análisis de las funciones es lo más complejo que harán de este laboratorio. Recuerden que como se pueden declarar parámetros formales y variables dentro de una función, esta crea un **scope** nuevo, utilicen lo siguiente para crear un nuevo scope:
 
 ```java
-O.enterScope();
+O.enterScope()
 ```
+
+{% hint style="info" %}
+Por lo general podemos decir que en Viper cada par de llaves `{}` crean un nuevo **scope**
+{% endhint %}
 
 Si la función se llama **main** hay un par de cosas que se tienen que considerar, una de ellas es que la función **main** no puede tener parámetros definidos y la otra es que siempre tiene que tener un tipo de retorno **int**. Cuando sea el caso que tenga parámetros definidos tienen que utilizar lo siguiente para imprimir un error:
 
@@ -132,6 +136,40 @@ Cuando suceda lo anterior tienen que utilizar lo siguiente:
 
 ```java
 SemantErrors.formalIsAlreadyDefined(formal.line, formal.col, formal.name)
+```
+
+{% hint style="success" %}
+Utilicen lo siguiente para agregar el formal al scope actual:
+
+```java
+O.add(formal.name, formal.type)
+```
+
+Noten que como valor mandamos el tipo del formal ¿Por qué?
+{% endhint %}
+
+Después deberían de mandar a llamar recursivamente a `semant` para los `statements` y la expresión de retorno del nodo `ret`. Cuando estas dos llamadas regresen si `ret` no tiene tipo **void** y la función si utilizar lo siguiente:
+
+```java
+SemantErrors.unexpectedReturnValue(ret.line, ret.col)
+```
+
+Si `ret` es **void** y la función tiene un tipo de retorno diferente de **void** utilizar lo siguiente:
+
+```java
+SemantErrors.missingReturnStatement(line, col)
+```
+
+Y en general si `ret` no es igual al tipo de retorno de la función entonces:
+
+```java
+SemantErrors.incompatibleTypes(ret.line, ret.col, ret.getType(), type)
+```
+
+Al finalizar el análisis deberían de cerrar el scope, para evitar otros errores:
+
+```java
+O.exitScope()
 ```
 
 #### Constantes
@@ -162,7 +200,7 @@ bad operand types for binary operator '+'
 
 #### Return
 
-Cuando hagan el análisis semántico de **Return** recuerden que el tipo del return es el mismo que el de la expresión **e** del return.
+Cuando hagan el análisis semántico de **Return** recuerden que el tipo del return es el mismo que el de la expresión `e` del return.
 
 ### 2.5 Autograder
 
