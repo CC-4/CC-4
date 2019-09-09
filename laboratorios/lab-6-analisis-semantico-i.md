@@ -39,6 +39,36 @@ Ustedes tienen que diseñar un algoritmo _**recursivo**_ que sea capaz de verifi
 
 ### 1.2 Autograder
 
+Para probar su implementación pueden utilizar lo siguiente
+
+```bash
+./check cycles
+```
+
+Si todo lo tienen bien, les debería de salir lo siguiente:
+
+```bash
+      Autograder
+
+
++1       (test1)       
++1       (test5)       
++1       (test2)       
++1       (test4)       
++1       (test3)       
+
+
+=> You got a score of 5 out of 5.
+```
+
+El autograder funciona como en los proyectos, pueden ver en la carpeta **grading** las diferencias y los tests que se están probando. En este ejercicio los archivos de prueba tienen el siguiente formato:
+
+```bash
+parent -> children
+parent -> children
+...
+```
+
 ## 2. Análisis Semántico del lenguaje Viper
 
 Para el ejercicio 2 haremos el análisis semántico de algunos nodos del lenguaje Viper, así que los introduciremos a el un poco.
@@ -206,5 +236,38 @@ A pesar que solo el primer operando de esa serie de sumas es el incorrecto.
 
 Cuando hagan el análisis semántico de **Return** recuerden que el tipo del return es el mismo que el de la expresión `e` del return.
 
+{% hint style="success" %}
+Implementen este nodo de primero
+{% endhint %}
+
 ### 2.5 Autograder
+
+Para probar su implementación pueden utitlizar lo siguiente:
+
+```bash
+./check viper
+```
+
+Si todo lo tienen bien, les debería de salir lo siguiente:
+
+```bash
+      Autograder
+
+
++1 (unexpectedreturn)  
++1    (diffrettype)    
++1       (arith)       
++1   (mainwithargs)    
++1       (basic)       
++1     (badarith)      
++1     (mainnoint)     
++1       (good)        
++1    (badformals)     
++1      (string)       
++1       (bool)        
++1    (missingret)     
+
+
+=> You got a score of 12 out of 12.
+```
 
