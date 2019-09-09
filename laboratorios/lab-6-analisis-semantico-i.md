@@ -75,16 +75,16 @@ También pueden encontrar este archivo en la subcarpeta **doc** de su laboratori
 
 En los archivos de lab dentro de **src/viper/tree** están los nodos que representan el AST de un programa de Viper. En algunos de estos nodos ustedes tendrán que realizar el análisis semántico para completar el laboratorio. Los nodos que tienen que analizar son los siguientes:
 
-1. Function
-2. BoolConst
-3. IntConst
-4. StrConst
-5. Add
-6. Sub
-7. Mul
-8. Div
-9. Mod
-10. Return
+1. **Function**
+2. **BoolConst**
+3. **IntConst**
+4. **StrConst**
+5. **Add**
+6. **Sub**
+7. **Mul**
+8. **Div**
+9. **Mod**
+10. **Return**
 
 En el lenguaje Viper existen _statements_ y _expressions_, solo las expressions son las que siempre devuelven un valor y se les asigna un tipo, los statements no. Para asignar un tipo a una expression vean la función **semant** del nodo **NoReturn** para ver como es que se le asigna un tipo a una expression utilizando la clase **Type**, además vean la clase **Type** para ver los métodos que tiene, porque les va a servir tenerlos en mente. También van a notar como está declarada la función `semant` en los nodos del AST:
 
@@ -97,6 +97,8 @@ public void semant(SymbolTable O, HashMap<String, Function> M) {
 `O` es la tabla de símbolos que utilizaron en el laboratorio anterior, `M`es el entorno de funciones que hace un mapping de nombre de función a `Function` \(_esto es útil porque así se puede extraer fácilmente los formals y el tipo de retorno_\). Algo así tendría que verse su método `semant` en su proyecto, solo que con las cosas de COOL y tomando en cuenta los nombres de clases y que son `AbstractSymbol`. En este laboratorio no vamos a utilizar a `M`.
 
 ### 2.4 Implementación
+
+Para cada nodo del AST hay una serie de pasos que se tienen que realizar para garantizar que el análisis semántico capture todos los errores posibles, recuerden que esta es nuestra última barrera antes de **codegen** para atrapar errores.
 
 #### Análisis de Function
 
@@ -174,11 +176,11 @@ O.exitScope()
 
 #### Constantes
 
-Esto es bastante sencillo, si es una constante entera, el tipo de la expresión es **int**. Lo mismo pasa con las demás constantes.
+Esto es bastante sencillo, si es una constante entera, el tipo de la expresión es **int**. Lo mismo pasa con las demás constantes, strings **str** y booleans **bool**.
 
 #### Operaciones Aritméticas
 
-Las operaciones aritméticas siempre tienen que tener operandos de tipo **int** y siempre devuelven como resultado un **int**. Cuando algún operando no sea de tipo **int** tienen que utilizar el siguiente errror.
+Primero tienen que mandar a llamar recursivamente a `semant` de las expresiones que conforman el nodo. Las operaciones aritméticas siempre tienen que tener operandos de tipo **int** y siempre devuelven como resultado un **int**. Cuando algún operando no sea de tipo **int** tienen que utilizar el siguiente errror:
 
 ```java
 SemantErrors.badOperandTypesForBinaryOp(int line, int col, String operator)
@@ -198,47 +200,11 @@ bad operand types for binary operator '+'
 bad operand types for binary operator '+'
 ```
 
+A pesar que solo el primer operando de esa serie de sumas es el incorrecto.
+
 #### Return
 
 Cuando hagan el análisis semántico de **Return** recuerden que el tipo del return es el mismo que el de la expresión `e` del return.
 
 ### 2.5 Autograder
-
-Si ustedes quieren saber si ejercicio es correcto:
-
-```text
-  ~$ make check
-  python grading.py
-  ##################### Autograder #######################
-       +1 (gooddeclaration.test)
-       +1 (scopesbad.test)
-       +1 (while.test)
-       +1 (id.test)
-       +1 (goodfunctions.test)
-       +1 (functionsbad.test)
-       +1 (scopes.test)
-       +1 (redeclaration.test)
-       +1 (declarationinit.test)
-       +1 (functionredefined.test)
-       +1 (types.test)
-       +1 (bool.test)
-       +1 (multiplewhiles.test)
-       +1 (returndifftypes.test)
-       +1 (multipledeclaration.test)
-       +1 (whilegoodbody.test)
-       +1 (int.test)
-       +1 (returnwithvoid.test)
-       +1 (basic.test)
-       +1 (declarationbad.test)
-       +1 (whilebadbody.test)
-       +1 (redefinedformals.test)
-       +1 (noreturn.test)
-       +1 (nomain.test)
-       +1 (mainwithargs.test)
-
-  -> All ok
-  +------------------------------------------------------+
-  |                                          Score: 25/25|
-  +------------------------------------------------------+
-```
 
