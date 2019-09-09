@@ -1,6 +1,6 @@
 # Lab 6 \(Análisis Semántico I\)
 
-Es hora de empezar a poner en práctica el análisis semántico. El motivo de este laboratorio es que puedan ganar experiencia en como se hace el análisis semántico de un lenguaje simple y que posteriormente en su proyecto plasmen estas ideas. En el laboratorio anterior se enteraron de como funcionaba la tabla de símbolos, en este la vamos a utilizar juntamente con otras herramientas para anotar el árbol \(_AST_\) de un lenguaje llamado **Viper** con los tipos correspondientes.
+Es hora de empezar a poner en práctica el análisis semántico. El motivo de este laboratorio es que puedan ganar experiencia en como se hace el análisis semántico de un lenguaje simple y que posteriormente en su proyecto plasmen estas ideas. En el laboratorio anterior se enteraron de como funcionaba la tabla de símbolos, en este la vamos a utilizar juntamente con otras herramientas para anotar el árbol \(_AST_\) de un lenguaje llamado **Viper** con los tipos correspondientes. blab;abla
 
 Antes de empezar, vamos a obtener los archivos necesarios desde Github Classroom:
 
@@ -37,6 +37,13 @@ Ustedes tienen que diseñar un algoritmo _**recursivo**_ que sea capaz de verifi
 3. NO hay circuitos cerrados de herencia, siempre hay nodos sueltos en un grafo bien formado.
 4. **TIENE** que ser recursivo \(queda bastante simple así, lo prometemos\).
 
+Para que tengan una referencia, de que tanto tendrían que agregar al archivo, aquí están las estadísticas de nuestra implementación:
+
+```bash
+ src/Graph.java | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+```
+
 ### 1.2 Autograder
 
 Para probar su implementación pueden utilizar lo siguiente
@@ -55,13 +62,36 @@ Si todo lo tienen bien, les debería de salir lo siguiente:
 +1       (test5)       
 +1       (test2)       
 +1       (test4)       
++1       (test6)       
 +1       (test3)       
 
 
-=> You got a score of 5 out of 5.
+=> You got a score of 6 out of 6.
 ```
 
-El autograder funciona como en los proyectos, pueden ver en la carpeta **grading** las diferencias y los tests que se están probando.
+El autograder funciona como en los proyectos, pueden ver en la carpeta **grading** las diferencias y los tests que se están probando. Si ustedes desean probar en un archivo en específico pueden hacer lo siguiente:
+
+```bash
+./gradlew build
+./run -cycles <archivo>
+```
+
+En la carpeta **examples/cycles** hay algunos ejemplos. La estructura de los archivos de prueba es bastante simple:
+
+```bash
+parent -> children
+parent -> children
+...
+```
+
+Por ejemplo:
+
+```bash
+Object -> Main, IO, String, Int
+Main -> A
+```
+
+Noten que los nodos sueltos **no** se definen \(como **A**\).
 
 ## 2. Análisis Semántico del lenguaje Viper
 
@@ -110,7 +140,7 @@ En los archivos de lab dentro de **src/viper/tree** están los nodos que represe
 9. **Mod**
 10. **Return**
 
-En el lenguaje Viper existen _statements_ y _expressions_, solo las expressions son las que siempre devuelven un valor y se les asigna un tipo, los statements no. Para asignar un tipo a una expression vean la función **semant** del nodo **NoReturn** para ver como es que se le asigna un tipo a una expression utilizando la clase **Type**, además vean la clase **Type** para ver los métodos que tiene, porque les va a servir tenerlos en mente. También van a notar como está declarada la función `semant` en los nodos del AST:
+En el lenguaje Viper existen _statements_ y _expressions_, solo las expresiones son las que siempre devuelven un valor y se les asigna un tipo, los statements no. Para asignar un tipo a una expresión vean la función **semant** del nodo **NoReturn** para ver como es que se le asigna un tipo a una expresión utilizando la clase **Type**, además vean la clase **Type** para ver los métodos que tiene, porque les va a servir tenerlos en mente. También van a notar como está declarada la función `semant` en los nodos del AST:
 
 ```java
 public void semant(SymbolTable O, HashMap<String, Function> M) {
@@ -119,6 +149,22 @@ public void semant(SymbolTable O, HashMap<String, Function> M) {
 ```
 
 `O` es la tabla de símbolos que utilizaron en el laboratorio anterior, `M`es el entorno de funciones que hace un mapping de nombre de función a `Function` \(_esto es útil porque así se puede extraer fácilmente los formals y el tipo de retorno_\). Algo así tendría que verse su método `semant` en su proyecto, solo que con las cosas de COOL y tomando en cuenta los nombres de clases y que son `AbstractSymbol`. En este laboratorio no vamos a utilizar a `M`.
+
+Para que tengan una referencia, de que tanto tendrían que agregar a los diferentes archivos, aquí están las estadísticas de nuestra implementación:
+
+```bash
+ src/viper/tree/Add.java       |  7 ++++++-
+ src/viper/tree/BoolConst.java |  2 +-
+ src/viper/tree/Div.java       |  7 ++++++-
+ src/viper/tree/Function.java  | 30 +++++++++++++++++++++++++++++-
+ src/viper/tree/IntConst.java  |  4 ++--
+ src/viper/tree/Mod.java       |  7 ++++++-
+ src/viper/tree/Mul.java       |  7 ++++++-
+ src/viper/tree/Return.java    |  3 ++-
+ src/viper/tree/StrConst.java  |  4 ++--
+ src/viper/tree/Sub.java       |  7 ++++++-
+ 10 files changed, 66 insertions(+), 12 deletions(-)
+```
 
 ### 2.4 Implementación
 
@@ -141,6 +187,10 @@ Si la función se llama **main** hay un par de cosas que se tienen que considera
 ```java
 SemantErrors.mainFunctionShouldHaveNoArgs(line, col)
 ```
+
+{% hint style="info" %}
+Noten que todos los nodos en Viper tienen definido un **line** y un **col** ya que heredan de la clase **Node**.
+{% endhint %}
 
 {% hint style="success" %}
 Utilicen `formals.size()` para verificar esto
@@ -174,7 +224,11 @@ O.add(formal.name, formal.type)
 Noten que como valor mandamos el tipo del formal ¿Por qué?
 {% endhint %}
 
-Después deberían de mandar a llamar recursivamente a `semant` para los `statements` y la expresión de retorno del nodo `ret`. Cuando estas dos llamadas regresen si `ret` no tiene tipo **void** y la función si utilizar lo siguiente:
+{% hint style="info" %}
+`formal` tiene que ser una instancia de la clase **Formal**
+{% endhint %}
+
+Después deberían de mandar a llamar recursivamente a `semant` para los `statements` y la expresión de retorno `ret`. Cuando estas dos llamadas regresen si `ret` no tiene tipo **void** y la función si, tienen utilizar lo siguiente para reportar el error:
 
 ```java
 SemantErrors.unexpectedReturnValue(ret.line, ret.col)
@@ -207,8 +261,12 @@ Esto es bastante sencillo, si es una constante entera, el tipo de la expresión 
 Primero tienen que mandar a llamar recursivamente a `semant` de las expresiones que conforman el nodo. Las operaciones aritméticas siempre tienen que tener operandos de tipo **int** y siempre devuelven como resultado un **int**. Cuando algún operando no sea de tipo **int** tienen que utilizar el siguiente errror:
 
 ```java
-SemantErrors.badOperandTypesForBinaryOp(int line, int col, String operator)
+SemantErrors.badOperandTypesForBinaryOp(line, col, operator)
 ```
+
+{% hint style="info" %}
+`operator` tiene que ser un **String** que represente la operación binaria, por ejemplo `"+"`
+{% endhint %}
 
 Siempre tienen que asumir que el tipo de una expresión aritmética es un **int**, de lo contrario nos encontrariamos con errores en cascada poco informativos, consideren lo siguiente:
 
@@ -224,7 +282,13 @@ bad operand types for binary operator '+'
 bad operand types for binary operator '+'
 ```
 
-A pesar que solo el primer operando de esa serie de sumas es el incorrecto.
+A pesar que solo el primer operando de esa serie de sumas es el incorrecto. Lo correcto sería desplegar lo siguiente:
+
+```bash
+bad operand types for binary operator '+'
+```
+
+Esto es una forma de recuperación de errores que también van a tener que realizar en su proyecto.
 
 #### Return
 
@@ -264,4 +328,13 @@ Si todo lo tienen bien, les debería de salir lo siguiente:
 
 => You got a score of 12 out of 12.
 ```
+
+Si ustedes desean probar en un archivo en específico pueden hacer lo siguiente:
+
+```bash
+./gradlew build
+./run -viper <archivo>
+```
+
+En la carpeta **examples/viper** hay algunos ejemplos.
 
