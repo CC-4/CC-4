@@ -8,6 +8,10 @@ Antes de empezar, vamos a obtener los archivos necesarios desde Github Classroom
 https://classroom.github.com/a/r35tEC0W
 ```
 
+{% hint style="warning" %}
+Por favor lean todas las instrucciones del lab, antes de empezar.
+{% endhint %}
+
 ## 1. Ciclos en Grafos:
 
 En la fase 3 del compilador les piden verificar que el grafo de herencia de un programa hecho en **COOL** esté bien formado. Según la definición del manual de COOL un grafo de herencia está bien formado si ese grafo **NO** tiene ciclos, es decir, si hay una clase **A**, esa clase **A** no puede heredar de **A** \(de ella misma\). Tampoco se puede que una clase **A** herede de una clase **B** y esa clase **B** herede de **A**. Para poder encontrar esos ciclos necesitamos diseñar un algoritmo _**recursivo**_ \(_lo que van a hacer en esta primera parte del lab_\). En el archivo **src/Graph.java** hay una función llamada _**hasCycles**_ que tienen que completar para encontrar los ciclos en un grafo:
