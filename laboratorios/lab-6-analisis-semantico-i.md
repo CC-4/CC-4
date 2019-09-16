@@ -176,7 +176,7 @@ Para cada nodo del AST hay una serie de pasos que se tienen que realizar para ga
 
 #### Análisis de Function
 
-El análisis de las funciones es lo más complejo que harán de este laboratorio. Recuerden que como se pueden declarar parámetros formales y variables dentro de una función, esta crea un **scope** nuevo, utilicen lo siguiente para crear un nuevo scope:
+El análisis de las funciones es lo más complejo que realizarán de este laboratorio. Recuerden que como se pueden declarar parámetros formales y variables dentro de una función, esta crea un **scope** nuevo, utilicen lo siguiente para crear un nuevo scope:
 
 ```java
 O.enterScope()

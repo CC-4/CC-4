@@ -10,6 +10,7 @@
 * [Lab 4 \(JCUP\)](laboratorios/lab-4.md)
 * [Lab 5 \(Symbol Table\)](laboratorios/lab-5.md)
 * [Lab 6 \(Análisis Semántico I\)](laboratorios/lab-6-analisis-semantico-i.md)
+* [Lab 7 \(Análisis Semántico II\)](laboratorios/lab-7-analisis-semantico-ii.md)
 
 ## Proyectos
 
