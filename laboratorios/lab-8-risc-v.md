@@ -10,7 +10,7 @@ description: |
 
 # Lab 8 \(RISC-V\)
 
-En este laboratorio van a programar en lenguaje ensamblador para practicar y resforzar los conocimientos que adquirieron en CC3.
+En este laboratorio van a programar en lenguaje ensamblador para practicar y reforzar los conocimientos que adquirieron durante CC3.
 
 Antes de empezar, vamos a obtener los archivos necesarios desde Github Classroom:
 
