@@ -19,4 +19,15 @@
 * [Análisis Léxico](proyectos/untitled.md)
 * [Análisis Sintáctico](proyectos/analisis-sintactico.md)
 * [Análisis Semántico](proyectos/analisis-semantico.md)
+* [Generación de Código](proyectos/generacion-de-codigo.md)
+
+## Manuales <a id="documentos"></a>
+
+* [Manual de COOL](https://theory.stanford.edu/~aiken/software/cool/cool-manual.pdf)
+* [Manual JLex](https://www.cs.princeton.edu/~appel/modern/java/JLex/current/manual.html)
+* [Manual JCup](https://www.cs.princeton.edu/~appel/modern/java/CUP/manual.html)
+
+## Guías
+
+* [Guía CodeGen](https://github.com/CC-4/PA4/releases/download/v1.0/GuiaCodeGen.pdf)
 
