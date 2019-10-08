@@ -12,6 +12,7 @@
 * [Lab 6 \(Análisis Semántico I\)](laboratorios/lab-6-analisis-semantico-i.md)
 * [Lab 7 \(Análisis Semántico II\)](laboratorios/lab-7-analisis-semantico-ii.md)
 * [Lab 8 \(RISC-V\)](laboratorios/lab-8-risc-v.md)
+* [Lab 9 \(CodeGen I\)](laboratorios/lab-9-codegen-i.md)
 
 ## Proyectos
 
