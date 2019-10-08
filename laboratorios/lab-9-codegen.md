@@ -33,13 +33,13 @@ El activation record sería el siguiente:
 
 Tanto en el proyecto, como en este laboratorio, van a encontrar una clase de ayuda llamada **CgenSupport.java** que contiene algunas definiciones que sirven para generar código, revisen esta clase para hacerse una idea de lo que pueden hacer con ella. 
 
-Una técnica bastante buena para crear un generador de código, es aplicarle ingeniería inversa a un generador de código que ya existe. En el laboratorio utilizando lo siguiente:
+Aplicar ingeniería inversa es factible, siempre y cuando tengamos claro que está sucediendo. Utilizando lo siguiente:
 
 ```bash
 ./vipercl <archivo>
 ```
 
-Pueden compilar un archivo y ver lo que un generador de código totalmente funcional genera y tratar de "_imitar"_ ese comportamiento.
+pueden compilar un archivo y ver lo que un generador de código totalmente funcional genera y tratar de "_imitar"_ ese comportamiento.
 
 Para compilar un archivo, utilizando su generador de código pueden hacer lo siguiente:
 
@@ -135,7 +135,7 @@ addi  fp sp 4
 
 Noten que necesitamos 1 palabra para la variable local que aparece dentro del cuerpo de la función y además, 2 palabras adicionales para los registros `fp` y `ra` para un total de 3 palabras de 32 bits, es por eso que aparece el **-12** \(_3 \* 4 = 12_\). También noten como se guardan los registros y como se establece el frame pointer para que apunte hacia `ra`.
 
-La función `locals()` ustedes la van a tener que implementar en su proyecto, esta función no es tan trivial como parece, recuerden que en un determinado tiempo hay variables vivas y variables muertas, por ejemplo:
+La función `locals()` ya está hecha por ustedes en este laboratorio, pero la van a tener que implementar en su proyecto, esta función no es tan trivial como parece, recuerden que en un determinado tiempo hay variables vivas y variables muertas, por ejemplo:
 
 ```python
 def foo(): void {
@@ -149,7 +149,7 @@ def foo(): void {
 }
 ```
 
-Cuando llegamos a la declaración `int z = 30`, la variable `y` estará _muerta_ y el espacio que utilizó se puede reciclar. Para este caso la función `locals()` tiene que devolver como resultado que se necesitan 2 palabras de 32 bits para las variables locales de la función, sabiendo que el espacio que utilizó `y` se puede reutilizar para `z`. 
+Cuando llegamos a la declaración `int z = 30`, la variable `y` estará _muerta_ y el espacio que utilizó se puede reciclar. Para este caso la función `locals()` tiene que devolver como resultado que se necesitan 2 palabras de 32 bits para las variables locales de la función, sabiendo que el espacio que utilizó `y` se puede reutilizar para `z`. Esto es lo que el compilador de referencia de cool **coolc** y **coolc-rv** hacen.
 
 Ya habiendo impreso el prólogo podemos seguir con el paso 3 y 4, podemos hacer lo siguiente:
 
@@ -170,7 +170,7 @@ statements.code(new Counter(2), O, p);
 ret.code(new Counter(2), O, p);
 ```
 
-Se preguntarán ¿por qué el `new Counter(2)` ? recuerden que el primer parámetro de la función `code` es un contador que nos indica el siguiente espacio disponible en el área de variables locales en relación al frame pointer. La primer variable siempre se encontrara 2 posiciones arriba del `fp` porque `ra` está al mismo nivel que `fp` y `old fp` esta una posición arriba.
+Se preguntarán ¿por qué el `new Counter(2)` ? recuerden que el primer parámetro de la función `code` es un contador que nos indica el siguiente espacio disponible en el área de variables locales en relación al frame pointer. La primer variable siempre se encontrará 2 posiciones arriba del `fp` porque `ra` está al mismo nivel que `fp` y `old fp` está una posición arriba.
 
 Luego hay que cerrar el scope:
 
@@ -193,7 +193,7 @@ addi  sp sp 20
 ret
 ```
 
-Noten que estamos mandando `size + formals.size()`, ya que necesitamos restaurar el espacio reservado por el caller para meter los parámetros de la función. Por eso el **20**, porque se reservaron 3 palabras en el prólogo y 2 parámetros tiene la función para un total de 5 palabras de 32 bits \(_5 \* 4 = 20_\). 
+Noten que estamos mandando `size + formals.size()`, ya que necesitamos restaurar también el espacio reservado por el caller que utilizó para meter los parámetros de la función. Por eso el **20**, porque se reservaron 3 palabras en el prólogo del callee y 2 parámetros tiene la función para un total de 5 palabras de 32 bits \(_5 \* 4 = 20_\). 
 
 ### Call
 
