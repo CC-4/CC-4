@@ -43,7 +43,7 @@ if (true) {
 
 Otra cosa importante que tienen que tener claro, es que el único nodo que puede aumentar la cantidad de espacio a reservar en Viper es **Declaration** y los lugares donde puede aparecer este nodo es dentro de una función, dentro de los bloques de un **If**, y dentro del bloque de un **While**. En COOL ustedes van a tener que considerar a **Let** y a **Typecase** como los responsables de incrementar la cantidad de espacio. 
 
-Bien, ahora que ya está un poco más claro como funciona `locals()` es hora de hablar un poco de como utilizar ese espacio. Como el espacio se reserva en el activation record de la función, para referenciar una posición de ese espacio de manera fácil es utilizando el frame pointer \(el registro`fp`\).  Volvamos al ejemplo del laboratorio pasado:
+Bien, ahora que ya está un poco más claro como funciona `locals()` es hora de hablar un poco de como utilizar ese espacio \(**lo que necesitan realmente para este laboratorio**\). Como el espacio se reserva en el activation record de la función, para referenciar una posición de ese espacio de manera fácil es utilizando el frame pointer \(el registro`fp`\).  Volvamos al ejemplo del laboratorio pasado:
 
 ```python
 def foo(x: int, y: int): void {
