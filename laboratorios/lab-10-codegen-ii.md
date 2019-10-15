@@ -96,7 +96,7 @@ Los nodos restantes que ustedes tienen que completar son los siguientes:
 * **If**
 * **While**
 
-Para que tengan una idea de que tanto tienen que tanto se tiene que realizar, aquí van un par de estadísticas:
+Para que tengan una idea de que tanto tienen que realizar, aquí van unas estadísticas:
 
 ```bash
  src/main/java/viper/tree/Assign.java      |  4 +++-
