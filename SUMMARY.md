@@ -14,6 +14,7 @@
 * [Lab 8 \(RISC-V\)](laboratorios/lab-8-risc-v.md)
 * [Lab 9 \(CodeGen I\)](laboratorios/lab-9-codegen.md)
 * [Lab 10 \(CodeGen II\)](laboratorios/lab-10-codegen-ii.md)
+* [Lab 11 \(Optimizaciones\)](laboratorios/lab-11-optimizaciones.md)
 
 ## Proyectos
 
