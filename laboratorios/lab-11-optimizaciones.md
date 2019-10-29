@@ -61,7 +61,7 @@ lo cual deberian cambiarlo a:
 
 El output de su código debe ser el **AST** optimizado por lo que las operaciones matemáticas entre constantes deben aparecer como una sola constante \(usted no debe preocuparse por desplegar el **AST** esto ya lo hace el código que se le proporciona, usted solo debe modificar la estructura del **AST**\).
 
-## 4. Autograder:
+## 4. Autograder
 
 Para comprobar que su código funciona correctamente, pueden escribir **make check**:
 
