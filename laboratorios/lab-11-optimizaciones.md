@@ -66,21 +66,21 @@ El output de su código debe ser el **AST** optimizado por lo que las operacione
 Para comprobar que su código funciona correctamente, pueden escribir **make check**:
 
 ```text
-  echo '#!/bin/sh' >> lab11
-  echo 'java -classpath /home/volant360/Documents/Lab11/try/lib/java-cup-11a.jar:.:`dirname $0` Lab11 $*' >> lab11
-  chmod 755 lab11
-  python grading.py
-  ##################### Autograder #######################
-         +1 (test3.test)
-         +1 (test2.test)
-         +1 (test5.test)
-         +1 (test4.test)
-         +1 (test1.test)
+make check 
+echo '#!/bin/sh' >> lab11
+echo 'java -classpath /usr/class/cs143/cool/lib:.:/usr/java/lib/rt.jar:`dirname $0` Lab11 $*' >> lab11
+chmod 755 lab11
+python grading.py
+##################### Autograder #######################
+       +0 (test3.test)
+       +0 (test2.test)
+       +0 (test5.test)
+       +0 (test4.test)
+       +0 (test1.test)
 
-  -> All ok
-  +------------------------------------------------------+
-  |                                            Score: 5/5|
-  +------------------------------------------------------+
++------------------------------------------------------+
+|                                            Score: 0/5|
++------------------------------------------------------+
 ```
 
 
